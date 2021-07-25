@@ -17,7 +17,7 @@ enviarCliente = function(){
     if (xhttp.readyState === 4) {
       console.log(xhttp.status);
       console.log(xhttp.responseText);
-      if(xhttp.status == 201) alert("Parabéns!! Cadastrado com sucesso");
+      if(xhttp.status == 201) location.reload();
       else alert("Oops, algo deu errado"); 
   }};
 
@@ -30,6 +30,7 @@ enviarCliente = function(){
   newData.bairro = document.getElementById('recipient-bairro').value;
   newData.cidade = document.getElementById('recipient-cidade').value;
   newData.estado = document.getElementById('recipient-estado').value;
+  newData.celular = document.getElementById('recipient-celular').value;
   newData.dataNacimento = document.getElementById('recipient-nascimento').value;
 
   xhttp.send(JSON.stringify(newData));

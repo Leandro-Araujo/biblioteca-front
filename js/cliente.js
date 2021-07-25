@@ -36,9 +36,6 @@ xhttp.onreadystatechange = function(){
 
         	linklixeira.appendChild(imglixeira);
         	tablelixeira.appendChild(linklixeira);
-
-
-
         	
             //cliente.classList.add("conta");
 
@@ -72,28 +69,15 @@ xhttp.onreadystatechange = function(){
 }
 
 xhttp.send();
-/*
-function mostrarConta(){
-    //alert(this.id);
-    document.getElementById("conta").style.display = "inline-block";
-    let url = "http://localhost:8080/contas/" +this.id;
 
-    var xhttp = new XMLHttpRequest(); 
-
-    xhttp.open("GET", url, true); 
-
-    xhttp.onreadystatechange = function(){
-    if ( xhttp.readyState == 4 && xhttp.status == 200 ) {
-        var respota = JSON.parse(xhttp.responseText);        
-        document.getElementById('contausuario').innerText = respota.numero;
-        document.getElementById('tipoconta').innerText = tipoCt[respota.tipo];
-        document.getElementById('agencia').innerText = respota.agencia;
-        document.getElementById('saldo').innerText = respota.saldo;
-        }
-    }
-    xhttp.send();
-}*/
 
 function apagarCliente(){
-	alert(this.id);
+    var url = "http://localhost:8080/cliente/" + this.id;
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", url , true);
+    xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+    xhr.onload = function () {        
+        location.reload();        
+    }
+    xhr.send(null);
 }
